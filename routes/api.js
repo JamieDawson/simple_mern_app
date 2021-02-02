@@ -23,4 +23,11 @@ router.get('/names', (req, res) => {
 	res.json(data);
 });
 
+router.post('/save', (req, res) => {
+	console.log('Body :', req.body);
+	res.json({
+		msg: 'we got the data',
+	});
+});
+
 module.exports = router;
