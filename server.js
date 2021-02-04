@@ -20,6 +20,10 @@ mongoose.connection.on('connected', () => {
 	console.log('Mongoose is connected!!!');
 });
 
+//
+app.use(express.json()); //makes avaible for request.body
+app.use(express.urlencoded({extended: false}));
+
 app.use(morgan('tiny'));
 
 app.use('/api', routes); //everything inside api will start with api.

@@ -24,9 +24,19 @@ router.get('/names', (req, res) => {
 });
 
 router.post('/save', (req, res) => {
-	console.log('Body :', req.body);
-	res.json({
-		msg: 'we got the data',
+	const data = req.body; // taking in json from app.use(express.json())
+	const newBlogPost = new BlogPost(data);
+	console.log('wut');
+	//.save
+	newBlogPost.save((error) => {
+		if (error) {
+			res.status(500).json({msg: 'sorry you got ane error'});
+		} else {
+			console.log('here');
+			res.json({
+				msg: 'Your data got saved',
+			});
+		}
 	});
 });
 
